@@ -5,7 +5,7 @@ Using the `employees.db` sqlite database in this repository with the following t
 ```
 sqlite> .open employees.db
 sqlite> .schema employees
-CREATE TABLE employees (id INTEGER PRIMARY KEY, gender TEXT not null, race TEXT not null);
+CREATE TABLE employees (id INTEGER PRIMARY KEY, gender TEXT not null);
 sqlite> SELECT * FROM employees;
 1|male
 2|male
