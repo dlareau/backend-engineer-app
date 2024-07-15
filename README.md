@@ -43,12 +43,12 @@ And second, create an api with an endpoint `/count` that reads from the database
 
 - The api must take an environment variable `PORT` and respond to requests on that port.
 - You provide basic setup instructions required to run the api.
-- `curl localhost:$PORT/employees` returns the described response.
+- `curl localhost:$PORT/employees` returns the first response (ignoring formatting) and `curl localhost:$PORT/count` returns the second response (ignoring formatting).
 
 ## Success
 
 - We can run the api from your setup instructions
-- The curl returns the described response
+- The curl returns the described responses
 - The api is written in Python or Go
 
 ## Not Required
