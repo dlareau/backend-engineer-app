@@ -5,7 +5,7 @@ Using the `employees.db` sqlite database in this repository with the following t
 ```
 sqlite> .open employees.db
 sqlite> .schema employees
-CREATE TABLE employees (id INTEGER PRIMARY KEY, gender TEXT not null);
+CREATE TABLE employees (id INTEGER PRIMARY KEY, gender TEXT not null, race TEXT not null);
 sqlite> SELECT * FROM employees;
 1|male
 2|male
@@ -13,36 +13,29 @@ sqlite> SELECT * FROM employees;
 4|female
 5|female
 6|female
+7|non-binary
 ```
 
-Create an api with an endpoint `/employees` that reads from this database and returns the following JSON response (content matters not format/indent):
+First, create an api with an endpoint `/employees` that reads from this database and returns a list of all of the employees and their data as JSON. It should look like the following JSON response (content matters not format/indent):
 
 ```
 [
-    {
-        "gender": "male",
-        "id": 1
-    },
-    {
-        "gender": "male",
-        "id": 2
-    },
-    {
-        "gender": "male",
-        "id": 3
-    },
-    {
-        "gender": "female",
-        "id": 4
-    },
-    {
-        "gender": "female",
-        "id": 5
-    },
-    {
-        "gender": "female",
-        "id": 6
-    }
+    { "id": 1, "gender": "male" },
+    { "id": 2, "gender": "male" },
+    { "id": 3, "gender": "male" },
+    { "id": 4, "gender": "female" },
+    { "id": 5, "gender": "female" },
+    { "id": 6, "gender": "female" },
+    { "id": 7, "gender": "non-binary" },
+]
+```
+
+And second, create an api with an endpoint `/count` that reads from the database and returns a list of each gender and the count of employees that identify as that gender. It should look like the following JSON response (content matters not format/indent):
+```
+[
+    { "gender": "male", "count": 3},
+    { "gender": "female", "count": 3},
+    { "gender": "non-binary", "count": 1},
 ]
 ```
 
